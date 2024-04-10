@@ -11,10 +11,8 @@ function App() {
 
   return (
     <div>
-     <header>
       <h1>Desafio Segurarse</h1>
       <Link to="/menu">Menu</Link>
-     </header>
       <Routes>
         <Route path= '/menu' element={<Menu />}/>
       </Routes>

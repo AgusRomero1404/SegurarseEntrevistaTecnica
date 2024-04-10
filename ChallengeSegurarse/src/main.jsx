@@ -9,6 +9,6 @@ import NavMenu from './components/NavMenu.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <Admin />
+    <App />
   </BrowserRouter>,
 )

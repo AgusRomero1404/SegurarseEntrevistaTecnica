@@ -1,5 +1,5 @@
 import React from 'react';
-import Example from './NavMenu';
+import NavMenu from './NavMenu';
 
 const Admin = () => {
 
@@ -60,7 +60,7 @@ const Admin = () => {
   return (
     
     <>
-   <Example/>
+   <NavMenu />
         <ul role="list" className="divide-y divide-gray-100 px-4">
       {people.map((person) => (
         <li key={person.email} className="flex justify-between gap-x-6 py-5">
