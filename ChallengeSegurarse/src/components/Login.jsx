@@ -1,8 +1,8 @@
-import React from 'react';
-import "../App.css"; 
+import React from "react";
+import "../App.css";
 const Login = () => {
   return (
-<>
+    <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -18,7 +18,10 @@ const Login = () => {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
                 Email
               </label>
               <div className="mt-2">
@@ -35,7 +38,10 @@ const Login = () => {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Contraseña
                 </label>
               </div>
@@ -58,7 +64,6 @@ const Login = () => {
               >
                 Ingresar
               </button>
-              
             </div>
             <div>
               <button
@@ -67,7 +72,6 @@ const Login = () => {
               >
                 Crear Usuario
               </button>
-              
             </div>
           </form>
         </div>

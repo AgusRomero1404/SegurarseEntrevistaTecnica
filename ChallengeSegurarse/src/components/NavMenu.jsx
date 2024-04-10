@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import UserProfile from './UserProfile'
-
+import UserForm from './UserForm'
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
   { name: 'Team', href: '#', current: false },
@@ -166,7 +166,7 @@ const handleProfileClick = () => {
               </form>
               <h3 className="font-bold text-lg">Hello!</h3>
               <p className="py-4">Press ESC key or click on ✕ button to close</p>
-              <UserProfile {...userProfile} />
+              <UserForm />
             </div>
           </dialog>
         </>
