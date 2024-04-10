@@ -1,6 +1,7 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import UserProfile from './UserProfile'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -8,12 +9,26 @@ const navigation = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
+const userProfile = 
+  {nombre: 'Jorgito',
+   apellido: 'Perez',
+   telefono: '123456789',
+   foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+   rol:'Gerente',
+  }
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function NavMenu() {
+
+  const [showUserProfile, setShowuserProfile] = useState(false);
+
+const handleProfileClick = () => {
+  setShowuserProfile(true);
+};
+
   return (
     <Disclosure as="nav" className="bg-gray-800 w-full">
       {({ open }) => (
@@ -81,6 +96,7 @@ export default function NavMenu() {
                       />
                     </Menu.Button>
                   </div>
+                  
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
@@ -95,21 +111,13 @@ export default function NavMenu() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            onClick={()=>document.getElementById('my_modal_3').showModal()} 
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')} 
                           >
                             Your Profile
                           </a>
                         )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
+                        
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
@@ -146,6 +154,21 @@ export default function NavMenu() {
               ))}
             </div>
           </Disclosure.Panel>
+          <div>
+          {showUserProfile && <UserProfile {...userProfile} />}
+          </div>
+          {/* You can open the modal using document.getElementById('ID').showModal() method */}
+          <dialog id="my_modal_3" className="modal">
+            <div className="modal-box">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+              </form>
+              <h3 className="font-bold text-lg">Hello!</h3>
+              <p className="py-4">Press ESC key or click on ✕ button to close</p>
+              <UserProfile {...userProfile} />
+            </div>
+          </dialog>
         </>
       )}
     </Disclosure>
