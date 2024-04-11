@@ -1,13 +1,15 @@
 import React from "react";
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 function UserForm() {
+  const { register, handleSubmit, formState: {errors} } = useForm();
+  
   return (
     <>
     <div className=" flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"> 
  
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit((data) => {console.log(data)})}>
             <div>
               <label
                 htmlFor="email"
@@ -19,14 +21,13 @@ function UserForm() {
                 <input
                   id="email"
                   name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
+                  type="text"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("name", {required: true})}
                 />
+                {errors.name && <span class="text-red-500 text-xs block">Nombre es requerido</span>}
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label
@@ -42,9 +43,10 @@ function UserForm() {
                   name="password"
                   type="password"
                   autoComplete="current-password"
-                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("surname", {required: true})}
                 />
+                {errors.surname && <span class="text-red-500 text-xs block">Apellido es requerido</span>}
               </div>
             </div>
             <div>
@@ -58,70 +60,51 @@ function UserForm() {
                 <input
                   id="email"
                   name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
+                  type="number"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  {...register("phone", {required: true})}
                 />
+                {errors.phone && <span class="text-red-500 text-xs block">Telefono es requerido</span>}
               </div>
             </div>
             <div>
-              <label
+            <label
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Rol
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
+            </label>
+            <select className="select select-bordered w-full max-w-xs"
+            {...register("rol", {required: true})}
+            >
+              <option disabled selected>Elija un Rol</option>
+              <option value="Vendedor">Vendedor</option>
+              <option value="Gerente de ventas">Gerente de Ventas</option>
+              <option value="Atencion al cliente">Atencion al cliente</option>
+              <option value="Gerente de Atencion al cliente" >Gerente de Atencion al cliente</option>
+            </select>
+            {errors.rol && <span class="text-red-500 text-xs block">Rol requerido</span>}
             </div>
-            <div>
-              <label
+            <div className="flex justify-between space-x-1">
+            <label
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Email
+                Foto
               </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+              <div class="avatar">
+                <div class="w-24 mask mask-hexagon">
+                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                </div>
               </div>
+              <button className="btn">🔄</button>
             </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Email
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
+            <div className="flex justify-center">
+              <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Crear Usuario</button>
             </div>
+            
           </form>
         </div>
-        
       </div>
       </>
   );
