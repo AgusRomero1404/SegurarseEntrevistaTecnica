@@ -4,11 +4,12 @@
 
 Para instalar las dependencias del proyecto, ejecuta el siguiente comando en tu terminal:
 
-npm install
+**npm install**
 
 
 Una vez instaladas las dependencias, puedes iniciar la aplicación ejecutando:
 
+**npm run dev**
 
 ## Credenciales de Acceso al Login
 
