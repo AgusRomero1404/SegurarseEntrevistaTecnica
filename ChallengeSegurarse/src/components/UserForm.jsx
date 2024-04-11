@@ -44,25 +44,25 @@ function UserForm({ userData, onSubmit }) {
       <div className=" flex min-h-full flex-1 flex-col justify-center px-3 py-2 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit(handleFormSubmit)}>
-            {/* Nombre */}
+            
             <div>
               <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
               <input type="text" {...register("name", { required: true })} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               {errors.name && <span className="text-red-500 text-xs block">Nombre es requerido</span>}
             </div>
-            {/* Apellido */}
+            
             <div>
               <label htmlFor="surname" className="block text-sm font-medium leading-6 text-gray-900">Apellido</label>
               <input type="text" {...register("surname", { required: true })} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               {errors.surname && <span className="text-red-500 text-xs block">Apellido es requerido</span>}
             </div>
-            {/* Teléfono */}
+           
             <div>
               <label htmlFor="phone" className="block text-sm font-medium leading-6 text-gray-900">Teléfono</label>
               <input type="number" {...register("phone", { required: true })} className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
               {errors.phone && <span className="text-red-500 text-xs block">Teléfono es requerido</span>}
             </div>
-            {/* Género */}
+            
             <div>
               <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">Género</label>
               <select {...register("gender", { required: true })} className="select select-bordered w-full max-w-xs">
@@ -72,7 +72,7 @@ function UserForm({ userData, onSubmit }) {
               </select>
               {errors.gender && <span className="text-red-500 text-xs block">Género es requerido</span>}
             </div>
-            {/* Rol */}
+            
             <div>
               <label htmlFor="rol" className="block text-sm font-medium leading-6 text-gray-900">Rol</label>
               <select {...register("rol", { required: true })} className="select select-bordered w-full max-w-xs">
@@ -84,7 +84,7 @@ function UserForm({ userData, onSubmit }) {
               </select>
               {errors.rol && <span className="text-red-500 text-xs block">Rol es requerido</span>}
             </div>
-            {/* Avatar */}
+           
             <div className="flex justify-between">
               <label className="block text-sm font-medium leading-6 text-gray-900">Avatar</label>
               <div className="avatar">
@@ -93,7 +93,7 @@ function UserForm({ userData, onSubmit }) {
                 </div>
               </div>
             </div>
-            {/* Botón */}
+            
             <div className="flex justify-center">
               <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  bg-gray-400 hover:bg-gray-500 text-gray-900 hover:text-white px-3 py-1 rounded">{userData ? "Guardar Cambios" : "Crear Usuario"}</button>
             </div>
