@@ -22,6 +22,7 @@
     useEffect(() => {
       if (gender) {
         setValue("src", `https://randomuser.me/api/portraits/${gender}/${id}.jpg`);
+        setValue("id", id);
       }
     }, [gender, id, setValue]);
 
