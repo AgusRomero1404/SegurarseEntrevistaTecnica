@@ -95,7 +95,7 @@ function UserForm({ userData, onSubmit }) {
             </div>
             {/* Botón */}
             <div className="flex justify-center">
-              <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">{userData ? "Guardar Cambios" : "Crear Usuario"}</button>
+              <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  bg-gray-400 hover:bg-gray-500 text-gray-900 hover:text-white px-3 py-1 rounded">{userData ? "Guardar Cambios" : "Crear Usuario"}</button>
             </div>
           </form>
         </div>

@@ -21,7 +21,7 @@ function Dashboard() {
             <Admin />
         </div>
         <footer class="flex justify-center items-center">
-        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg" onClick={()=>document.getElementById('my_modal_3').showModal()}>Crear Usuario</button>
+        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  bg-gray-400 hover:bg-gray-500 text-gray-900 hover:text-white px-3 py-1 rounded" onClick={()=>document.getElementById('my_modal_3').showModal()}>Crear Usuario</button>
         </footer>
           <dialog id="my_modal_3" className="modal">
             <div className="modal-box">

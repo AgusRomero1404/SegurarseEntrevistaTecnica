@@ -21,7 +21,7 @@ function Hero() {
             Recomiendo leer la documentacion del programa ya que en ella podran encontrar las credenciales permitidas para el logueo del usuario.
           </p>
           <Link to="/init">
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Get Started</button>
           </Link>
         </div>
       </div>

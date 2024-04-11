@@ -37,14 +37,12 @@ function ItemUser({ person }) {
         </div>
         <div className="flex flex-col md:flex-row mt-2 md:mt-0 md:items-end gap-y-2 md:gap-y-0 md:gap-x-2">
           <>
-            <button className="btn btn-xs" onClick={handleEdit}>Editar</button>
-            <button className="btn btn-xs" onClick={handleDelete}>Borrar</button>
-            <button className="btn btn-xs" onClick={handleVisualize}>Visualizar</button>
+            <button className="btn btn-xs bg-gray-400 hover:bg-gray-500 text-gray-900 hover:text-white px-3 py-1 rounded" onClick={handleEdit}>Editar</button>
+            <button className="btn btn-xs bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded" onClick={handleDelete}>Borrar</button>
           </>
         </div>
       </li>
 
-      {/* Modal de edición */}
       {editModalOpen && (
         <dialog id="edit_modal" className="modal" open>
           <div className="modal-box">
