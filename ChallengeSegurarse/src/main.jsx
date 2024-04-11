@@ -13,6 +13,6 @@ import Hero from './pages/Hero.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <Hero />
+    <Dashboard />
   </BrowserRouter>,
 )

@@ -1,16 +1,17 @@
   import React, { useEffect } from "react";
   import { useForm } from 'react-hook-form';
   import { useUserStore } from "../store/userStore";
+  import { v4 as uuidv4 } from 'uuid';
 
   function UserForm() {
     const { register, handleSubmit, formState: {errors}, reset, watch, setValue } = useForm();
     const { users, addUser, updateUser, removeUsers} = useUserStore();
   
-    const id = useUserStore((state) => state.users.length)
+    const idimg = useUserStore((state) => state.users.length)
+    const id = uuidv4();
 
     const handleAdd = (data) => {
-      const newItem = { data };
-      addUser(newItem);
+      addUser(data);
       reset();
     }
     const gender = watch("gender");
@@ -21,14 +22,14 @@
 
     useEffect(() => {
       if (gender) {
-        setValue("src", `https://randomuser.me/api/portraits/${gender}/${id}.jpg`);
+        setValue("src", `https://randomuser.me/api/portraits/${gender}/${idimg}.jpg`);
         setValue("id", id);
       }
-    }, [gender, id, setValue]);
+    }, [gender, idimg, setValue]);
 
     return (
       <>
-      <div className=" flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"> 
+      <div className=" flex min-h-full flex-1 flex-col justify-center px-3 py-2 lg:px-8"> 
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" onSubmit={handleSubmit(handleAdd)}>
@@ -99,7 +100,7 @@
               <select className="select select-bordered w-full max-w-xs"
               {...register("gender", {required: true})}
               >
-                <option disabled selected>Elija un Rol</option>
+                <option disabled selected>Genero</option>
                 <option value="men">Hombre</option>
                 <option value="women">Mujer</option>
               </select>
@@ -132,7 +133,7 @@
                 </label>
                 <div class="avatar">
                   <div class="w-24 mask mask-hexagon">
-                    <img src={`https://randomuser.me/api/portraits/${gender}/${id}.jpg`} />
+                    <img src={`https://randomuser.me/api/portraits/${gender}/${idimg}.jpg`} />
                   </div>
                 </div>
               </div>
