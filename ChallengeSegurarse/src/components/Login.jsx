@@ -1,22 +1,32 @@
 import React, { useState } from "react";
 import "../App.css";
 import { useForm } from 'react-hook-form';
-import useLoginStore from "../store/loginStore";
+import {useLoginStore} from "../store/loginStore";
+import { Navigate } from 'react-router-dom';
+
 const Login = () => {
  
   const [showError, setShowError] = useState(false)
   const { register, handleSubmit, formState: {errors} } = useForm();
+  const [redirect, setRedirect] = useState(false); 
   const { user: usuarioFijo, password: contraseñaFija, login, isLoggedIn } = useLoginStore(); // Obtiene el usuario y contraseña fijos del store
 
   const onSubmit = (data) => {
     if (data.user === usuarioFijo && data.password === contraseñaFija) {
       console.log("Inicio de sesión exitoso");
       login(data.user, data.password)
+      setRedirect(true)
     } else {
       setShowError(true)
     }
   }
   console.log("isLoggedIn:", isLoggedIn);
+  
+  if (redirect) {
+    return <Navigate to="/dashboard" />;
+  }
+
+
   return (
     <div>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

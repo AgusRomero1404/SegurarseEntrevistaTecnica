@@ -3,6 +3,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import UserProfile from './UserProfile'
 import UserForm from './UserForm'
+import { Link } from 'react-router-dom'
+import {useLoginStore} from "../store/loginStore";
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
   { name: 'Team', href: '#', current: false },
@@ -24,13 +26,20 @@ function classNames(...classes) {
 export default function NavMenu() {
 
   const [showUserProfile, setShowuserProfile] = useState(false);
+  const { logout } = useLoginStore(); 
+
+
+  const handleSignOut = () => {
+    logout();
+  };
+
 
 const handleProfileClick = () => {
   setShowuserProfile(true);
 };
 
   return (
-    <Disclosure as="nav" className="bg-gray-800 w-full">
+    <Disclosure as="nav" className="bg-blue-500 w-full">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -51,7 +60,7 @@ const handleProfileClick = () => {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src="https://segurarse.com.ar/ContentS/img/Segurarse_LogoNuevo.svg"
                     alt="Your Company"
                   />
                 </div>
@@ -91,7 +100,7 @@ const handleProfileClick = () => {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="https://segurarse.com.ar/ContentS/img/misegurarse.png"
                         alt=""
                       />
                     </Menu.Button>
@@ -120,12 +129,14 @@ const handleProfileClick = () => {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          <Link                             
+                            onClick={handleSignOut}
+                            to="/"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')
+                          }
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>

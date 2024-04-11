@@ -1,20 +1,20 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Menu from './components/NavMenu'
-import {Link, Route , Routes} from 'react-router-dom'
+import {Route , Routes} from 'react-router-dom'
+import Hero from './pages/Hero'
+import Init from './pages/Init'
+import Dashboard from './pages/Dashboard'
  
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <div>
-      <h1>Desafio Segurarse</h1>
-      
-      <Link to="/menu">Menu</Link>
       <Routes>
-        <Route path= '/menu' element={<Menu />}/>
+        <Route path="/" element={<Hero />} />
+        <Route path="/init" element={<Init />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   )

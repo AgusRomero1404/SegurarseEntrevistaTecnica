@@ -1,9 +1,10 @@
 import { create }  from 'zustand';
 
-const useLoginStore = create((set) => ({
+export const useLoginStore = create((set) => ({
   user: 'Segurarse',
   password: 'Segurarse',
-  isLoggedIn: false, 
+  isLoggedIn: false,
+  logout: () => set({ isLoggedIn: false }) ,
   login: (username, password) => {
     if (username === 'Segurarse' && password === 'Segurarse') {
       set({ isLoggedIn: true }); 
@@ -13,4 +14,3 @@ const useLoginStore = create((set) => ({
   }
 }));
 
-export default useLoginStore;

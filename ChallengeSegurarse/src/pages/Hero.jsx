@@ -1,5 +1,6 @@
 import React from "react";
 import gradient from '../assets/gradient.png';
+import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
@@ -19,7 +20,9 @@ function Hero() {
             Estoy muy contento por haber participado en este proceso de selección. Aprendi mucho haciendolo.
             Recomiendo leer la documentacion del programa ya que en ella podran encontrar las credenciales permitidas para el logueo del usuario.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link to="/init">
+            <button className="btn btn-primary">Get Started</button>
+          </Link>
         </div>
       </div>
     </div>
