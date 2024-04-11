@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import UserProfile from './UserProfile'
+
 import UserForm from './UserForm'
 import { Link } from 'react-router-dom'
 import {useLoginStore} from "../store/loginStore";
@@ -11,13 +11,7 @@ const navigation = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
-const userProfile = 
-  {nombre: 'Jorgito',
-   apellido: 'Perez',
-   telefono: '123456789',
-   foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-   rol:'Gerente',
-  }
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -25,7 +19,7 @@ function classNames(...classes) {
 
 export default function NavMenu() {
 
-  const [showUserProfile, setShowuserProfile] = useState(false);
+  
   const { logout } = useLoginStore(); 
 
 
@@ -34,9 +28,6 @@ export default function NavMenu() {
   };
 
 
-const handleProfileClick = () => {
-  setShowuserProfile(true);
-};
 
   return (
     <Disclosure as="nav" className="bg-blue-500 w-full">
@@ -164,10 +155,6 @@ const handleProfileClick = () => {
               ))}
             </div>
           </Disclosure.Panel>
-          <div>
-          {showUserProfile && <UserProfile {...userProfile} />}
-          </div>
-          {/* You can open the modal using document.getElementById('ID').showModal() method */}
         </>
       )}
     </Disclosure>
